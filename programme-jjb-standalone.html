@@ -1,0 +1,1280 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Programme JJB</title>
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Programme%20JJB%22%2C%22short_name%22%3A%22JJB%22%2C%22start_url%22%3A%22./%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230E0E10%22%2C%22theme_color%22%3A%22%230E0E10%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAAPE0lEQVR4nO3dPYxl513H8XPn/WV39t1m4yUm8SK2cIQoNnKBkEIUIZGGECkgBSQKTEMBBV1QeoRCUCQKpFAgCjq6FEFUCBpMgQRBViiCwoJNSLCt3c3ujr0zFDcardm1d3bmnPO8/D6fwnKzc8/zzNX/e58zd%2B4s9vbODwDkWSl9AQCUIQAAoQQAIJQAAIQSAIBQAgAQSgAAQgkAQCgBAAglAAChBAAglAAAhBIAgFACABBKAABCCQBAKAEACCUAAKEEACCUAACEEgCAUAIAEEoAAEKtlb6Ahr1%2B81rpSwCGYRhuvHar9CU0abG3d770NTTArIfmqMJTCcCTmfjQGT14nAC8j7kP3VOCIwJg6EOu8BhEB8DoB4bgDCQGwNwHniitBFkBMPqBp8rJQEQAzH3gBLovQecBMPqBU%2Bo4A90GwOgHRtRlBjoMgNEPTKSzDPT2YXCmPzCdziZMPyeAzr4xQM36OAp0cgIw/YE59TFzmj8B9PFtABrV9FGg7ROA6Q%2BU1fQUavUE0PSmA/1p8SjQ5AnA9Adq0%2BJcai8ALe4ykKC56dTSLaDmNhfI1MrtoGZOAKY/0IpW5lUbAWhlNwGWmphaDQSgiX0E%2BH/qn121B6D%2BHQT4IJVPsKoDUPneATxVzXOs3gDUvGsAx1ftNKs0ANXuF8AJ1DnTagxAnTsFcBoVTrbqAlDhHgGMorb5VlcAatsdgHFVNeUqCkBV%2BwIwkXpmXS0BqGdHAKZWycSrIgCV7AXAbGqYe1UEAID5lQ9ADRkEmF/x6Vc4AMXXD1BQ2RlYMgCmP0DBSVj%2BFhAARRQLgJf/AEul5mGZAJj%2BAI8qMhXdAgIIVSAAXv4DPG7%2B2Th3AEx/gA8y84R0Cwgg1KwB8PIf4MPNOSfnC4DpD3Acs01Lt4AAQs0UAC//AY5vnpnpBAAQao4AePkP8KxmmJxOAAChJg%2BAl/8AJzP1/HQCAAglAAChpg2A%2Bz8ApzHpFHUCAAg1YQC8/Ac4velmqRMAQCgBAAg1VQDc/wEYy0QT1QkAINQkAfDyH2BcU8xVJwCAUAIAEEoAAEKNHwA/AACYwujT1QkAIJQAAIQaOQDu/wBMZ9wZ6wQAEEoAAEIJAEAoAQAINWYA/AQYYGojTlonAIBQAgAQSgAAQgkAQCgBAAglAAChRguA94ACzGOseesEABBKAABCCQBAKAEACCUAAKEEACCUAACEEgCAUAIAEEoAAEIJAEAoAQAIJQAAoQQAIJQAAIQSAIBQAgAQSgAAQgkAQCgBAAglAAChBAAglAAAhBIAgFACABBKAABCCQBAKAEACCUAAKEEACCUAACEEgCAUAIAEEoAAEIJAEAoAQAIJQAAoQQAIJQAAIQSAIBQAgAQSgAAQgkAQCgBAAglAAChBAAglAAAhBIAgFACABBKAABCCQBAKAEACLVW%2BgLo3G9%2B%2B/t/9879mR/05tnNv7hxZeYHzVkp3XACAAglAAChBAAglAAAhBIAgFACABBKAABCCQBAKAEACCUAAKEEACCUAACEEgCAUAIAEEoAAEIJAEAoAQAIJQAAoQQAIJQAAIQSAIBQAgAQSgAAQgkAQCgBAAglAAChBAAglAAAhBIAgFACABBKAABCCQBAKAEACCUAAKEEACCUAACEEgCAUAIAEEoAAEIJAEAoAQAIJQAAoQQAIJQAAIQSAIBQAgAQSgAAQgkAQCgBAAglAAChBAAglAAAhBIAgFACABBKAABCCQBAKAEACCUAAKEEACCUAACEEgCAUAIAEEoAAEIJAEAoAQAIJQAAoQQAIJQAAIQSAIBQAgAQSgAAQgkAQCgBAAglAAChBAAglAAAhBIAgFACABBKAABCCQBAKAEACCUAAKEEACCUAACEEgCAUAIAEEoAAEIJAEAoAQAIJQAAoQQAIJQAAIQSAIBQAgAQSgAAQgkAQCgBAAglAAChBAAglAAAhBIAgFACABBKAABCCQBAKAEACCUAAKEEACCUAACEEgCAUAIAEEoAAEIJAEAoAQAIJQAAoQQAIJQAAIQSAIBQAgAQSgAAQgkAQCgBAAglAAChBAAglAAAhBIAgFACABBKAABCCQBAKAEACCUAAKEEACCUAACEEgCAUAIAEEoAAEIJAEAoAQAIJQB0aFH6AmaTs1KmIABM693Dw/kfdH2lwGDMWSndEACm9eCgwFjcWhQYizkrpRsCwLT2i4zFEq%2BLc1ZKNwSAad1%2BmDIWc1ZKNwSAaf3Puw/nf9AiYzFnpXRDAJjQnYcH90vcGNmcfSzmrJSeCAATuvWgwIviYRi2Zx%2BLOSulJwLAhL59790ij/vcxurMj5izUnoiAEzo3wqNxR%2BbfSzmrJSeCAAT%2Bqc7%2B0Ue9%2BrsYzFnpfREAJjK/YPDUmNx5tfFOSulMwLAVP7h9oMin46ws7LYW531iZ2zUjrj2cNUvvGDHxZ53KubazM/Ys5K6YwAMIl7B4d//da9Ig/9sa1Zx2LOSumPADCJv/r%2B3XslfjFqGIZP7G7M%2BXA5K6U/AsD43js8/Pobt0s9%2Bss767M9Vs5K6ZIAML6//N7dN/bL/GbsMAwvz/i6OGeldEkAGNmb%2Bw//%2BD/fKfXoP765dm5tpmd1zkrplScQYzoYhi/9%2B1t3S3ww8tLLuzPdFclZKR0TAMb0lf945%2B/fuV/wAl7Z25rngXJWSscEgNH8%2BX/f%2BbM3i/1EdBiGxTB86vwcYzFnpfTN%2B4gZx5%2B%2Bcfurt4rdEF/6xO7Gc%2BuTfzRCzkrpngBwWnceHnzpO299s9AvQz3q0xe2J/36OSslhABwKt98694ffPft/yr3VshHfXrKuyI5KyWHAHASB8Pwt2/f//qbt//x9oPS1/IjH9tau749/htjclZKIAHg2Xzr7v7fvH3/Gz/44XcfvFf6Wt7ni8%2BdGfcL5qyUWALAExwOw4ODwwcHh3ceHryx//DN/Yffuf/ev9zd/%2Be7%2B//73kHpq3uCM6srn7u8e4J/mLNSeJwAMHz%2BX7/3rbtl/p7JWH758s7u6tP/PHrOSuE4/B4AzVsZhl97PuKuSM5KmYcA0Lyfv7D90Yw/jZKzUuYhALRtbbH4vWvnSl/FHHJWymwEgLb9%2BvNnfiLjD2PlrJTZCAANu7S%2B8tsfOVv6KuaQs1LmJAA07HdfOHdmNeI5nLNS5uQpRate2dv8/JWId8TnrJSZCQBNurK%2B%2BpWPX0x4%2BuaslPl5XtGe1cXwRy9dvBTwecg5K6UIAaA9v/PCuZtnN0tfxRxyVkoRAkBjfvHizqtXI94Pk7NSShEAWvKZC9t/%2BPGLCR%2BFk7NSChIAmvGp81tffeliwieh5ayUsgSANvzcua2vXb%2B0tuh/KOaslOIEgAZ84crun/zkpfWAmZizUmrgo0Wo2sZi8fsvnv9CwK9B5ayUeggA9Xp%2BY/Vr1y/99O5G6QuZXM5KqYoAUKlfuLD95RcvXFrv/y5lzkqpjQBQnY9urn35xfM/e26r9IVMLmel1EkAqMjGYvHq1bO/dfXs5krnPwXNWSk1EwCqsLmy%2BKVLO69ePXut9z95mLNS6ucpSGFnV1d%2B9bnd33j%2BTPcfeZazUlohABRzfXv9c5d3fuXKbvd/6iRnpbRFAJjbRzZWP3tp57MXd27srJe%2BlmnlrJRGCQBzWBmGn9pZf2Vv6zMXtn/mzEbHP/fMWSkdEACmshyFnzy7%2Bcm9zZtnNvfWur37kbNSOiMAjGMxDFc3Vq9vr7%2B0vX59e%2B361vr17fXdHj/QMmeldE8A%2BECLYdhYWWwsFhsri43Fj/5/c2Vxbm3l8trK5fXVy%2BvL/65eWV95YXNtu9m3tOesFB612Ns7P8oXev3mtVG%2BDgBPdeO1W6f/Im5WAoQSAIBQAgAQSgAAQgkAQCgBAAglAAChBAAglAAAhBIAgFACABBKAABCCQBAKAEACCUAAKEEACCUAACEEgCAUAIAEEoAAEIJAEAoAQAIJQAAoQQAIJQAAIQSAIBQAgAQSgAAQgkAQCgBAAglAAChBAAglAAAhBIAgFACABBKAABCCQBAKAEACCUAAKEEACCUAACEEgCAUAIAEEoAAEIJAEAoAQAIJQAAoQQAIJQAAIQSAIBQAgAQSgAAQgkAQCgBAAg1WgBuvHZrrC8FwIcYa946AQCEEgCAUAIAEEoAAEIJAEAoAQAINWYAvBMUYGojTlonAIBQAgAQSgAAQgkAQKiRA%2BDnwADTGXfGOgEAhBIAgFDjB8BdIIApjD5dnQAAQgkAQCgBAAg1SQD8GABgXFPMVScAgFBTBcAhAGAsE01UJwCAUAIAEGrCALgLBHB6081SJwCAUNMGwCEA4DQmnaJOAAChBAAg1OQBcBcI4GSmnp9OAACh5giAQwDAs5phcjoBAISaKQAOAQDHN8/MdAIACDVfABwCAI5jtmk56wlAAwA%2B3Jxz0i0ggFBzB8AhAOCDzDwhC5wANADgcfPPRreAAEKVCYBDAMCjikzFYicADQBYKjUP3QICCFUyAA4BAAUnYeETgAYAycrOwPK3gDQAyFR8%2BpUPAABFVBGA4hkEmFkNc6%2BKAAx17AXAPCqZeLUEYKhmRwAmVc%2BsqygAQ037AjCFqqZcXQEYKtsdgBHVNt%2BqC8BQ3x4BnF6Fk63GAAxV7hTAidU50yoNwFDrfgE8q2qnWb0BGCreNYBjqnmOVR2Aoe69A/hwlU%2Bw2gMwVL%2BDAE9U/%2BxqIABDC/sI8KgmplYbARga2U2AoZ15tdjbO1/6Gp7N6zevlb4EgCdrZfQvNXMCONLW/gI5mptO7QVgaHCXge61OJfauwX0KLeDgOJaHP1LTZ4AjrS770Afmp5CbZ8AjjgKADNrevQvtX0CONLBdwJoSB8zp5MTwBFHAWBSfYz%2BpU5OAEd6%2Bt4AtelswvR2AjjiKACMqLPRv9RtAJZkADilLkf/UucBWJIB4AQ6Hv1LEQE4ogTAU3U/949kBWBJBoAnyhn9S4kBOKIEwJA3949EB2BJBiBW7OhfEoD3EQPoXvjQf5QAPJkSQGfM/ccJwLHoATTHxH8qATg5VYBKmPUnIwAAoXr7MDgAjkkAAEIJAEAoAQAIJQAAoQQAIJQAAIQSAIBQAgAQSgAAQgkAQCgBAAglAAChBAAglAAAhBIAgFACABBKAABCCQBAKAEACCUAAKEEACDU/wH7C9%2BYu2EREgAAAABJRU5ErkJggg%3D%3D%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image/png%22%7D%5D%7D">
+<link rel="icon" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="JJB">
+<meta name="theme-color" content="#0E0E10">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap');
+
+:root{
+  --bg:#0E0E10;
+  --panel:#18171B;
+  --panel-2:#201F24;
+  --line:#2C2A30;
+  --text:#F0EDE8;
+  --muted:#928F94;
+  --accent:#E6432C;
+  --accent-dim:#3D1712;
+  --green:#4C8C6B;
+  --amber:#D98A3D;
+  --amber-bg:#3A2C17;
+}
+html[data-theme="light"]{
+  --bg:#F5F6F7;
+  --panel:#FFFFFF;
+  --panel-2:#F0EFEC;
+  --line:#DCDAD7;
+  --text:#16151A;
+  --muted:#6B6870;
+  --accent:#D8371F;
+  --accent-dim:#FBE3DF;
+  --green:#2F7A54;
+  --amber:#B9711F;
+  --amber-bg:#FCEEDA;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{-webkit-text-size-adjust:100%;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  font-size:15px;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  transition:background-color .15s ease, color .15s ease;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important; transition:none !important;}
+}
+#app{max-width:520px;margin:0 auto;padding:0 14px calc(100px + env(safe-area-inset-bottom));}
+
+.sticky-top{
+  position:sticky;top:0;background:var(--bg);z-index:10;
+  padding:14px 0 12px;border-bottom:1px solid var(--line);margin-bottom:14px;
+}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+h1{
+  font-family:'Oswald',sans-serif;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+  font-size:22px;
+  margin:2px 0 2px;
+}
+h2{
+  font-family:'Oswald',sans-serif;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+  font-size:18px;
+  margin:0 0 4px;
+}
+.sub{color:var(--muted);font-size:12.5px;margin:0 0 14px;}
+
+.header-row{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+.header-right{display:flex;align-items:center;gap:8px;}
+.streak-badge{
+  display:flex;align-items:center;gap:4px;
+  padding:7px 10px;border-radius:999px;
+  background:var(--panel-2);border:1px solid var(--line);
+  font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;color:var(--text);
+  white-space:nowrap;
+}
+.theme-toggle{
+  width:36px;height:36px;border-radius:50%;flex:0 0 auto;
+  border:1.5px solid var(--line);background:var(--panel);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;cursor:pointer;color:var(--text);
+}
+.theme-toggle:active{background:var(--panel-2);}
+
+.cycle-row{display:flex;gap:5px;margin-bottom:10px;}
+.cycle-seg{
+  flex:1;height:32px;border-radius:4px;border:1.5px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;
+  color:var(--muted);background:var(--panel);
+}
+.cycle-seg.active{background:var(--accent-dim);border-color:var(--accent);color:var(--text);}
+.cycle-seg.active.deload{background:var(--amber-bg);border-color:var(--amber);color:var(--amber);}
+
+.week-nav{display:flex;gap:4px;flex:1;}
+.week-nav-row{display:flex;align-items:stretch;gap:6px;}
+.week-arrow{
+  flex:0 0 auto;width:30px;border-radius:6px;
+  border:1.5px solid var(--line);background:var(--panel);color:var(--muted);
+  font-size:17px;cursor:pointer;
+}
+.week-arrow:active{background:var(--panel-2);}
+.today-link{
+  display:inline-block;margin-top:8px;padding:6px 12px;border-radius:999px;
+  background:var(--panel-2);border:1px solid var(--line);color:var(--accent);
+  font-family:'JetBrains Mono',monospace;font-size:11.5px;cursor:pointer;font-weight:600;
+}
+.day-btn{
+  flex:1;min-height:50px;background:var(--panel);border:1.5px solid var(--line);border-radius:6px;
+  padding:8px 1px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--muted);font-family:'JetBrains Mono',monospace;
+}
+.day-btn:active{background:var(--panel-2);}
+.day-btn .dlabel{font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;}
+.day-btn .dnum{font-size:14px;font-weight:600;margin-top:2px;color:var(--text);}
+.day-btn.today{border-color:var(--accent);}
+.day-btn.selected{background:var(--accent-dim);border-color:var(--accent);}
+.day-dot{width:5px;height:5px;border-radius:50%;background:var(--green);margin-top:5px;visibility:hidden;}
+.day-btn.done .day-dot{visibility:visible;}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:15px;margin-bottom:12px;}
+
+.cat-chip{
+  display:inline-block;padding:4px 10px;border-radius:999px;
+  font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;font-weight:700;color:#0E0E10;margin-bottom:8px;
+}
+
+.cue{margin-top:9px;padding:9px 10px;border-radius:6px;background:var(--panel-2);border:1px solid var(--line);color:var(--muted);font-size:12.5px;line-height:1.5;}
+.cue-warn{background:var(--amber-bg);border-color:var(--amber);color:var(--amber);}
+.cue-pr{background:var(--accent-dim);border-color:var(--accent);color:var(--accent);font-weight:600;}
+
+.pr-badge{
+  display:inline-block;padding:2px 8px;border-radius:999px;margin-left:8px;
+  background:var(--accent);color:#fff;font-family:'JetBrains Mono',monospace;
+  font-size:10px;font-weight:700;letter-spacing:.03em;white-space:nowrap;
+}
+
+.timer-display{font-family:'Oswald',sans-serif;font-weight:800;font-size:64px;color:var(--text);line-height:1.1;margin:8px 0;font-variant-numeric:tabular-nums;}
+.gtg-hero{display:flex;align-items:center;gap:16px;margin:10px 0 12px;}
+.gtg-hero .num{font-family:'Oswald',sans-serif;font-size:46px;font-weight:800;color:var(--accent);line-height:1;}
+.gtg-hero .lbl{color:var(--muted);font-size:12px;margin-top:4px;max-width:150px;line-height:1.3;}
+.ring-wrap{
+  width:72px;height:72px;border-radius:50%;flex:0 0 auto;
+  background: conic-gradient(var(--accent) calc(var(--pct, 0) * 1%), var(--panel-2) 0);
+  display:flex;align-items:center;justify-content:center;
+}
+.ring-hole{
+  width:56px;height:56px;border-radius:50%;background:var(--panel);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.ring-hole .rn{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;color:var(--text);line-height:1;}
+.ring-hole .rd{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-top:1px;}
+
+.gtg-counter{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;}
+.gtg-btn{
+  min-height:46px;background:var(--accent);color:#fff;border:none;border-radius:6px;
+  padding:10px 16px;font-family:'Inter',sans-serif;font-weight:600;font-size:13.5px;cursor:pointer;
+}
+.gtg-btn:active{opacity:.8;}
+.gtg-btn.secondary{background:transparent;border:1.5px solid var(--line);color:var(--muted);}
+.row-inline{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px;}
+input[type=number]{
+  min-height:44px;width:80px;padding:8px;border-radius:6px;border:1.5px solid var(--line);
+  background:var(--panel-2);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:16px;
+}
+select{
+  min-height:44px;padding:8px;border-radius:6px;border:1.5px solid var(--line);
+  background:var(--panel-2);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;
+}
+
+.session-card{border-top:3px solid var(--line);}
+.deload-banner{margin:10px 0 4px;padding:9px 10px;border-radius:6px;background:var(--amber-bg);border:1px solid var(--amber);color:var(--amber);font-size:12.5px;}
+ul.exlist{list-style:none;margin:12px 0 0;padding:0;}
+ul.exlist li{border-top:1px solid var(--line);padding:12px 4px;}
+ul.exlist li:first-child{border-top:none;}
+.exrow{display:flex;gap:12px;align-items:flex-start;cursor:pointer;}
+.exrow:active{opacity:.75;}
+.point-box{
+  flex:0 0 auto;width:24px;height:24px;border-radius:5px;border:1.5px solid var(--line);margin-top:1px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'JetBrains Mono',monospace;font-size:14px;color:transparent;background:var(--panel-2);
+}
+.point-box.checked{background:var(--green);border-color:var(--green);color:#0E1712;}
+.ex-name{font-weight:600;font-size:15px;}
+.ex-name.checked-text{color:var(--muted);text-decoration:line-through;}
+.ex-detail{color:var(--muted);font-size:13px;margin-top:3px;line-height:1.4;}
+.wrow{display:flex;align-items:center;gap:10px;margin-top:9px;margin-left:36px;flex-wrap:wrap;}
+.winput{width:74px;min-height:40px;padding:6px 8px;border-radius:6px;border:1.5px solid var(--line);background:var(--panel-2);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:16px;}
+.wref{color:var(--muted);font-size:12px;}
+
+.info-body{color:var(--muted);font-size:13px;line-height:1.6;margin-top:6px;}
+
+.adherence-row{display:flex;gap:6px;margin-top:10px;}
+.adh-dot{
+  flex:1;aspect-ratio:1;border-radius:8px;border:1.5px solid var(--line);background:var(--panel-2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);font-weight:600;
+}
+.adh-dot.done{color:#fff;}
+.adh-dot.future{opacity:.4;}
+
+.chart-row{display:flex;align-items:flex-end;gap:6px;height:70px;margin-top:12px;}
+.chart-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
+.chart-bar{width:100%;border-radius:4px 4px 0 0;min-height:6px;}
+.chart-label{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--muted);margin-top:4px;white-space:nowrap;}
+
+.ex-mini-list{list-style:none;margin:10px 0 0;padding:0;}
+.ex-mini-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:13px;}
+.ex-mini-row:first-child{border-top:none;}
+.ex-mini-dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto;}
+.ex-mini-name{flex:1;font-weight:500;}
+.ex-mini-val{color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:12px;white-space:nowrap;}
+
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px;}
+.stat-box{background:var(--panel-2);border-radius:8px;padding:10px 6px;text-align:center;}
+.stat-num{font-family:'Oswald',sans-serif;font-weight:700;font-size:19px;color:var(--accent);line-height:1;}
+.stat-lbl{font-size:9.5px;color:var(--muted);margin-top:5px;line-height:1.3;}
+
+.level-num{font-family:'Oswald',sans-serif;font-weight:800;font-size:22px;color:var(--accent);margin:8px 0;}
+.level-bar-wrap{height:10px;background:var(--panel-2);border-radius:5px;overflow:hidden;}
+.level-bar-fill{height:100%;background:var(--accent);border-radius:5px;}
+.level-xp{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);margin-top:6px;}
+
+.bottom-nav-outer{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;padding:0 14px calc(14px + env(safe-area-inset-bottom));z-index:20;pointer-events:none;}
+.bottom-nav{pointer-events:auto;width:100%;max-width:492px;background:var(--panel);border:1px solid var(--line);border-radius:16px;display:flex;padding:6px;gap:4px;box-shadow:0 6px 24px rgba(0,0,0,.35);}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:52px;background:transparent;border:none;border-radius:12px;color:var(--muted);cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;}
+.nav-btn:active{background:var(--panel-2);}
+.nav-btn.active{color:var(--accent);}
+
+button:focus-visible, .day-btn:focus-visible, .exrow:focus-visible, .nav-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+</style>
+</head>
+<body>
+<div id="app">Chargement…</div>
+
+<script>
+const DAY_LABELS = ['DIM','LUN','MAR','MER','JEU','VEN','SAM'];
+
+const CATEGORY_COLORS = {
+  FORCE_BAS:'#E6432C', FORCE_HAUT:'#E6432C',
+  CARDIO_BASE:'#2E9CB8', JJB:'#8B5FD8',
+  EXPLOSIF:'#F0932B', CONDITIONNEMENT:'#4C9B6B',
+  REPOS:'#5A6472'
+};
+const TYPE_LABELS = {
+  FORCE_BAS:'FORCE', FORCE_HAUT:'FORCE',
+  CARDIO_BASE:'CARDIO', JJB:'JUJITSU',
+  EXPLOSIF:'EXPLOSIF', CONDITIONNEMENT:'CONDITIONNEMENT',
+  REPOS:'REPOS'
+};
+
+const PROGRAM = {
+  1:{type:'FORCE_BAS',title:'Force — bas du corps & tirage',exercises:[
+    {id:'f1',name:'Squat gobelet ou back squat',detail:'4 séries x 6 reps — charge modérée-lourde (RPE 7-8)',loadable:true},
+    {id:'f2',name:'Soulevé de terre roumain (RDL)',detail:'3 séries x 8 reps',loadable:true},
+    {id:'f3',name:'Tirage horizontal (rowing barre/haltère)',detail:'4 séries x 8 reps',loadable:true},
+    {id:'f4',name:'Fentes marchées chargées',detail:'3 séries x 10 reps/jambe',loadable:true},
+    {id:'f5',name:'Pallof press (gainage anti-rotation)',detail:'3 séries x 12 reps/côté'},
+    {id:'f6',name:'Farmer carry',detail:'3 séries x 30m, charge lourde',loadable:true}
+  ]},
+  2:{type:'CARDIO_BASE',title:'Cardio — base aérobie & technique solo',exercises:[
+    {id:'c1',name:'Effort continu zone 2',detail:'35-45 min, rameur/vélo/course — allure conversationnelle (~65-75% FCmax)'},
+    {id:'t1',name:'Hip escape & bridging',detail:"Hip escape (shrimping) 3 séries x 10 reps/côté, bridging (upa) 3 séries x 8 reps/côté + 1 pont maintenu 20s"},
+    {id:'t2',name:'Sprawl & repositionnement',detail:'Sprawl 3 séries x 8 reps, sit-through (hip heist) 3 séries x 8 reps/côté'}
+  ]},
+  3:{type:'JJB',title:'Jujitsu — technique & roulage',exercises:[
+    {id:'j1',name:'Séance jujitsu (ta séance habituelle)',detail:'Technique + roulage — priorité à la qualité'},
+    {id:'j2',name:'GTG pompes — volume léger uniquement',detail:"4 séries seulement aujourd'hui, pas de renfo haut du corps supplémentaire"}
+  ]},
+  4:{type:'EXPLOSIF',title:'Explosivité — puissance',exercises:[
+    {id:'e1',name:'Box jump ou squat sauté',detail:'5 séries x 3 reps, récupération complète entre séries'},
+    {id:'e2',name:'Broad jump (départ arrêté)',detail:'5 séries x 3 reps'},
+    {id:'e6',name:'Pop squat',detail:'4 séries x 10 reps — squat bas puis saut pieds écartés/joints'},
+    {id:'e3',name:'Medicine ball rotational throw',detail:'4 séries x 5 reps/côté'},
+    {id:'e4',name:'Kettlebell swing russe',detail:'4 séries x 10 reps',loadable:true},
+    {id:'e5',name:'Sprint départ arrêté',detail:'6 x 10-15m, récup 90s'}
+  ]},
+  5:{type:'FORCE_HAUT',title:'Force — tirage haut du corps & gainage',exercises:[
+    {id:'h1',name:'Tractions (ou tirage vertical assisté)',detail:'4 séries x 6-8 reps'},
+    {id:'h2',name:'Rowing unilatéral haltère',detail:'3 séries x 10 reps/bras',loadable:true},
+    {id:'h3',name:'Face pull',detail:'3 séries x 15 reps'},
+    {id:'h4',name:'Curl marteau (prise + avant-bras)',detail:'3 séries x 10 reps',loadable:true},
+    {id:'h5',name:'Suitcase carry',detail:'3 séries x 30m/côté',loadable:true},
+    {id:'h6',name:'Planche (gainage)',detail:'3 séries x 40s'},
+    {id:'h7',name:'Prehab coude — extensions poignet + pronosupination',detail:'2 séries x 15 reps, charge légère'}
+  ]},
+  6:{type:'CONDITIONNEMENT',title:'Conditionnement — rythme de round (6 min)',exercises:null},
+  0:{type:'REPOS',title:'Retest hebdo & technique solo',exercises:[
+    {id:'r1',name:'Retest max de pompes à froid',detail:"Une série stricte à l'échec technique — met à jour ton max de la semaine"},
+    {id:'t3',name:'Roulades & technical stand-up',detail:'Roulades avant/arrière, 5 répétitions dans chaque sens ; technical stand-up 3 séries x 5 reps/côté'},
+    {id:'t4',name:'Technique du cours à retravailler',detail:"Rejoue à vide, sans résistance, une séquence apprise mercredi — priorité à la précision du mouvement, pas à la vitesse"}
+  ]}
+};
+
+const CONDITIONING_BY_WEEK = {
+  1:[{id:'k1',name:'5 x (90s effort élevé / 90s récup active)',detail:'Rameur, vélo, sled — ou burpees (coudes rentrés, pas écartés) si pas de matériel — intensité ~85-90%',workSec:90,restSec:90,rounds:5}],
+  2:[{id:'k1',name:'4 x (2min effort élevé / 90s récup active)',detail:'Mêmes modalités, blocs plus longs',workSec:120,restSec:90,rounds:4}],
+  3:[{id:'k1',name:'3 x (3min effort élevé / 2min récup)',detail:"Se rapproche de la durée d'un round (6 min)",workSec:180,restSec:120,rounds:3}],
+  4:[{id:'k1',name:'3 x (90s effort modéré / 2min récup) — semaine allégée',detail:'Intensité réduite, priorité récupération avant nouveau cycle',workSec:90,restSec:120,rounds:3}]
+};
+
+const EXERCISE_INFO = {};
+Object.keys(PROGRAM).forEach(dowKey=>{
+  const p = PROGRAM[dowKey];
+  (p.exercises||[]).forEach(ex=>{
+    if(ex.loadable){ EXERCISE_INFO[ex.id] = {name: ex.name, type: p.type}; }
+  });
+});
+
+const XP_PER_SESSION = 20;
+const XP_PER_GTG_SET = 2;
+const XP_PER_PERFECT_WEEK = 50;
+const LEVEL_XP = 300;
+
+const state = {profile:null, selectedDate:null, dayData:null, page:'today', streakBase:0, liveStreak:0, exportJson:null,
+  timer:{workSec:90, restSec:30, rounds:5, running:false, paused:false, phase:'idle', currentRound:1, endTimestamp:null, pausedRemainingMs:0}};
+let timerHandle = null;
+
+function pad(n){return String(n).padStart(2,'0');}
+function toDateStr(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
+function parseDateStr(s){const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d);}
+function getMonday(d){const date=new Date(d);const day=date.getDay();const diff=(day===0?-6:1-day);date.setDate(date.getDate()+diff);date.setHours(0,0,0,0);return date;}
+function todayStr(){return toDateStr(new Date());}
+function fmtDate(s){const d=parseDateStr(s);return pad(d.getDate())+'/'+pad(d.getMonth()+1);}
+
+function normalizeDay(rec){
+  rec = rec || {};
+  rec.checked = rec.checked || {};
+  rec.gtgSets = rec.gtgSets || 0;
+  rec.weights = rec.weights || {};
+  return rec;
+}
+
+const LS_PREFIX = 'jjb:';
+function lsGet(key){
+  try{ const v = localStorage.getItem(LS_PREFIX+key); return v===null ? null : v; }
+  catch(e){ console.error('localStorage indisponible', e); return null; }
+}
+function lsSet(key, value){
+  try{ localStorage.setItem(LS_PREFIX+key, value); return true; }
+  catch(e){ console.error('localStorage set failed (quota ou navigation privée ?)', e); return false; }
+}
+function lsKeys(prefix){
+  const out = [];
+  try{
+    for(let i=0;i<localStorage.length;i++){
+      const k = localStorage.key(i);
+      if(k && k.startsWith(LS_PREFIX+prefix)) out.push(k.slice(LS_PREFIX.length));
+    }
+  }catch(e){ console.error('localStorage list failed', e); }
+  return out;
+}
+
+async function loadProfile(){
+  const v = lsGet('profile');
+  try{ return v ? JSON.parse(v) : null; }catch(e){ return null; }
+}
+async function saveProfile(p){
+  lsSet('profile', JSON.stringify(p));
+}
+async function loadDay(dateStr){
+  const v = lsGet('day:'+dateStr);
+  try{ return normalizeDay(v ? JSON.parse(v) : null); }catch(e){ return normalizeDay(null); }
+}
+async function saveDay(dateStr, data){
+  lsSet('day:'+dateStr, JSON.stringify(data));
+}
+async function loadWeightHist(exId){
+  const v = lsGet('hist:'+exId);
+  try{ return v ? JSON.parse(v) : []; }catch(e){ return []; }
+}
+async function saveWeightHist(exId, dateStr, kg){
+  const arr = await loadWeightHist(exId);
+  const filtered = arr.filter(e=>e.date!==dateStr);
+  filtered.push({date:dateStr, kg});
+  filtered.sort((a,b)=>a.date.localeCompare(b.date));
+  const trimmed = filtered.slice(-12);
+  lsSet('hist:'+exId, JSON.stringify(trimmed));
+  return trimmed;
+}
+async function loadBodyweightHist(){
+  const v = lsGet('bodyweight-history');
+  try{ return v ? JSON.parse(v) : []; }catch(e){ return []; }
+}
+async function saveBodyweightEntry(dateStr, kg){
+  const arr = await loadBodyweightHist();
+  const filtered = arr.filter(e=>e.date!==dateStr);
+  filtered.push({date:dateStr, kg});
+  filtered.sort((a,b)=>a.date.localeCompare(b.date));
+  const trimmed = filtered.slice(-26);
+  lsSet('bodyweight-history', JSON.stringify(trimmed));
+  return trimmed;
+}
+
+function cycleWeekFor(dateObj, programStart){
+  const mon = getMonday(dateObj);
+  const startMon = getMonday(parseDateStr(programStart));
+  const weeks = Math.floor((mon - startMon) / (7*86400000));
+  return ((weeks % 4) + 4) % 4 + 1;
+}
+function sessionFor(dateObj, cycleWeek){
+  const dow = dateObj.getDay();
+  const base = PROGRAM[dow];
+  if(base.type === 'CONDITIONNEMENT'){ return {...base, exercises: CONDITIONING_BY_WEEK[cycleWeek]}; }
+  return base;
+}
+function weekDates(anchorDate){
+  const mon = getMonday(anchorDate);
+  const out = [];
+  for(let i=0;i<7;i++){ const d=new Date(mon); d.setDate(mon.getDate()+i); out.push(d); }
+  return out;
+}
+function isDayDoneSync(dateObj, rec){
+  const dow = dateObj.getDay();
+  const cw = cycleWeekFor(dateObj, state.profile.programStart);
+  const total = (PROGRAM[dow].exercises || CONDITIONING_BY_WEEK[cw]).length;
+  const doneCount = Object.values(rec.checked||{}).filter(Boolean).length;
+  return doneCount>=total && total>0;
+}
+function computeMaxTrend(history){
+  if(!history || history.length===0) return {line:'', plateau:false};
+  const last5 = history.slice(-5);
+  const line = last5.map(e=>e.max).join(' → ');
+  let plateau = false;
+  if(history.length>=3){
+    const n = history.length;
+    const a = history[n-3].max, b = history[n-2].max, c = history[n-1].max;
+    plateau = (c<=b) && (b<=a);
+  }
+  return {line, plateau};
+}
+async function weekAdherence(anchorDate){
+  const dates = weekDates(anchorDate);
+  const results = await Promise.all(dates.map(async d=>{
+    const ds = toDateStr(d);
+    const rec = (ds === state.selectedDate && state.dayData) ? state.dayData : await loadDay(ds);
+    return {date: ds, dow: d.getDay(), done: isDayDoneSync(d, rec)};
+  }));
+  return results;
+}
+async function computeStreakBase(){
+  const days=[];
+  const start=new Date(); start.setDate(start.getDate()-1);
+  for(let i=0;i<30;i++){ const d=new Date(start); d.setDate(start.getDate()-i); days.push(d); }
+  const recs = await Promise.all(days.map(d=>loadDay(toDateStr(d))));
+  let streak=0;
+  for(let i=0;i<days.length;i++){
+    if(isDayDoneSync(days[i], recs[i])) streak++;
+    else break;
+  }
+  return streak;
+}
+async function getTodayDoneNow(){
+  const ds = todayStr();
+  const rec = (state.selectedDate===ds && state.dayData) ? state.dayData : await loadDay(ds);
+  return isDayDoneSync(new Date(), rec);
+}
+async function evaluatePerfectWeeksIfNeeded(){
+  const thisMonday = toDateStr(getMonday(new Date()));
+  if(state.profile.lastEvaluatedWeekMonday === thisMonday) return;
+  let cursorMonday;
+  if(state.profile.lastEvaluatedWeekMonday){
+    cursorMonday = parseDateStr(state.profile.lastEvaluatedWeekMonday);
+    cursorMonday.setDate(cursorMonday.getDate()+7);
+  } else {
+    cursorMonday = getMonday(parseDateStr(state.profile.programStart));
+  }
+  let changed=false, safety=0;
+  while(toDateStr(cursorMonday) < thisMonday && safety<26){
+    const dates=[]; for(let i=0;i<7;i++){ const d=new Date(cursorMonday); d.setDate(cursorMonday.getDate()+i); dates.push(d); }
+    const recs = await Promise.all(dates.map(d=>loadDay(toDateStr(d))));
+    const allDone = dates.every((d,i)=>isDayDoneSync(d, recs[i]));
+    if(allDone){ state.profile.perfectWeeks = (state.profile.perfectWeeks||0)+1; }
+    state.profile.lastEvaluatedWeekMonday = toDateStr(cursorMonday);
+    changed = true;
+    cursorMonday.setDate(cursorMonday.getDate()+7);
+    safety++;
+  }
+  if(changed) await saveProfile(state.profile);
+}
+function renderMiniChart(history, key, color){
+  if(!history || history.length===0) return `<p class="ex-detail">Pas encore de données.</p>`;
+  const items = history.slice(-8);
+  const vals = items.map(e=>e[key]);
+  const min = Math.min(...vals), max = Math.max(...vals);
+  const range = (max-min) || 1;
+  const bars = items.map((e,i)=>{
+    const v = e[key];
+    const pct = 15 + ((v-min)/range)*85;
+    const isLast = i === items.length-1;
+    return `<div class="chart-bar-wrap"><div class="chart-bar" style="height:${pct}%;background:${isLast?color:'var(--panel-2)'}"></div><div class="chart-label">${fmtDate(e.date)}</div></div>`;
+  }).join('');
+  return `<div class="chart-row">${bars}</div>`;
+}
+
+function headerTopHtml(){
+  const streak = state.liveStreak || 0;
+  return `<div class="header-row">
+      <div>
+        <div class="eyebrow">Préparation physique</div>
+        <h1>Programme JJB</h1>
+      </div>
+      <div class="header-right">
+        ${streak>0 ? `<div class="streak-badge">🔥 ${streak}</div>` : ''}
+        <button class="theme-toggle" data-action="toggle-theme" aria-label="Changer de thème">${state.profile.theme==='light' ? '☾' : '☀'}</button>
+      </div>
+    </div>
+    <p class="sub">Force · explosivité · cardio — jujitsu, ceinture bleue</p>`;
+}
+function cycleRowHtml(cycleWeek){
+  return `<div class="cycle-row">
+    ${[1,2,3,4].map(w=>`<div class="cycle-seg ${w===cycleWeek?'active':''} ${w===cycleWeek&&w===4?'deload':''}">S${w}</div>`).join('')}
+  </div>`;
+}
+function weekNavHtml(dates, selectedDateStr, todayD, doneFlags){
+  return `<div class="week-nav">
+    ${dates.map((d,i)=>{
+      const ds = toDateStr(d);
+      const sel = ds === selectedDateStr;
+      const isToday = ds === todayD;
+      return `<div class="day-btn ${sel?'selected':''} ${isToday?'today':''} ${doneFlags[i]?'done':''}" data-action="select-day" data-date="${ds}" tabindex="0">
+        <span class="dlabel">${DAY_LABELS[d.getDay()]}</span>
+        <span class="dnum">${d.getDate()}</span>
+        <span class="day-dot"></span>
+      </div>`;
+    }).join('')}
+  </div>`;
+}
+
+async function renderTodayPage(){
+  const selDate = parseDateStr(state.selectedDate);
+  const cycleWeek = cycleWeekFor(selDate, state.profile.programStart);
+  const isDeload = cycleWeek === 4;
+  const session = sessionFor(selDate, cycleWeek);
+  const dow = selDate.getDay();
+  const todayD = todayStr();
+  const dayData = state.dayData;
+  const catColor = CATEGORY_COLORS[session.type] || 'var(--accent)';
+
+  const dates = weekDates(selDate);
+  const adherence = await weekAdherence(selDate);
+  const doneFlags = adherence.map(a=>a.done);
+
+  const loadableIds = (session.exercises||[]).filter(ex=>ex.loadable).map(ex=>ex.id);
+  const histArrays = await Promise.all(loadableIds.map(id=>loadWeightHist(id)));
+  const histMap = {};
+  loadableIds.forEach((id,i)=>{ histMap[id] = histArrays[i]; });
+
+  const gtgTarget = Math.round(state.profile.weeklyMax * state.profile.percent / 100);
+  const gtgSetsPlanned = dow === 3 ? 4 : (dow === 0 ? null : 8);
+
+  const exList = (session.exercises||[]).map(ex=>{
+    const checked = !!dayData.checked[ex.id];
+    let weightHtml = '';
+    if(ex.loadable){
+      const h = histMap[ex.id] || [];
+      const priorEntries = h.filter(e=>e.date!==state.selectedDate);
+      const priorMax = priorEntries.length ? Math.max(...priorEntries.map(e=>e.kg)) : null;
+      let ref = null;
+      if(h.length){
+        const last = h[h.length-1];
+        ref = (last.date === state.selectedDate) ? (h.length>=2 ? h[h.length-2] : null) : last;
+      }
+      const todayVal = (dayData.weights && dayData.weights[ex.id]!=null) ? dayData.weights[ex.id] : '';
+      const isPR = priorMax!==null && todayVal!=='' && parseFloat(todayVal) > priorMax;
+      weightHtml = `<div class="wrow">
+        <input type="number" inputmode="decimal" step="0.5" class="winput" data-exid="${ex.id}" value="${todayVal}" placeholder="kg">
+        ${priorMax!==null ? `<span class="wref">Objectif : <strong style="color:var(--accent)">&gt; ${priorMax} kg</strong> <span style="opacity:.7">(dernier : ${ref.kg}kg le ${fmtDate(ref.date)})</span></span>` : `<span class="wref">Pas encore loggé</span>`}
+        ${isPR ? `<span class="pr-badge">🏆 Record</span>` : ''}
+      </div>`;
+    }
+    return `<li>
+      <div class="exrow" data-action="toggle-ex" data-id="${ex.id}" role="checkbox" aria-checked="${checked}" tabindex="0">
+        <div class="point-box ${checked?'checked':''}">${checked?'✓':''}</div>
+        <div>
+          <div class="ex-name ${checked?'checked-text':''}">${ex.name}</div>
+          <div class="ex-detail">${ex.detail}</div>
+        </div>
+      </div>
+      ${weightHtml}
+    </li>`;
+  }).join('');
+
+  const {line: maxLine, plateau} = computeMaxTrend(state.profile.maxHistory || []);
+  const mh = state.profile.maxHistory || [];
+  const isMaxPR = mh.length>=2 && mh[mh.length-1].max > Math.max(...mh.slice(0,-1).map(e=>e.max));
+  const maxTrendHtml = (maxLine ? `<p class="ex-detail">Historique récent : ${maxLine} (reps)</p>` : '')
+    + (isMaxPR ? `<div class="cue cue-pr">🏆 Nouveau record de pompes !</div>` : '')
+    + (plateau ? `<div class="cue cue-warn">Plateau détecté sur les 2 dernières semaines (pas de progression du max). Envisage d'introduire la pyramide 2x/semaine.</div>` : '');
+
+  let gtgBlock;
+  if(dow === 0){
+    const bwHist = await loadBodyweightHist();
+    const bwToday = bwHist.find(e=>e.date===state.selectedDate);
+    const bwLast5 = bwHist.slice(-5).map(e=>e.kg).join(' → ');
+    gtgBlock = `
+      <div class="eyebrow">Test hebdomadaire</div>
+      <h2>GTG — Retest du max</h2>
+      <p class="sub" style="margin-top:6px;margin-bottom:10px;">Une série stricte à l'échec technique, à froid. Le résultat recalcule ta cible pour la semaine.</p>
+      <div class="row-inline">
+        <input type="number" inputmode="numeric" id="maxInput" min="1" value="${state.profile.weeklyMax}">
+        <button class="gtg-btn" data-action="save-max">Enregistrer le nouveau max</button>
+      </div>
+      <p class="ex-detail">Max actuel enregistré : <strong style="color:var(--text)">${state.profile.weeklyMax}</strong></p>
+      <div style="margin-top:14px;border-top:1px solid var(--line);padding-top:14px;">
+        <div class="eyebrow">Poids de corps</div>
+        <div class="row-inline" style="margin-top:6px;">
+          <input type="number" inputmode="decimal" step="0.1" id="bwInput" min="1" value="${bwToday ? bwToday.kg : ''}" placeholder="kg">
+          <button class="gtg-btn" data-action="save-bw">Enregistrer</button>
+        </div>
+        ${bwLast5 ? `<p class="ex-detail">Historique récent : ${bwLast5} (kg)</p>` : ''}
+      </div>
+    `;
+  } else {
+    const pct = gtgSetsPlanned ? Math.min(100, Math.round((dayData.gtgSets||0)/gtgSetsPlanned*100)) : 0;
+    gtgBlock = `
+      <div class="eyebrow">Habitude quotidienne</div>
+      <h2>GTG — Pompes</h2>
+      <div class="gtg-hero">
+        <div>
+          <div class="num">${gtgTarget}</div>
+          <div class="lbl">reps / série (${state.profile.percent}% du max de ${state.profile.weeklyMax})</div>
+        </div>
+        <div class="ring-wrap" style="--pct:${pct}">
+          <div class="ring-hole">
+            <div class="rn">${dayData.gtgSets||0}/${gtgSetsPlanned}</div>
+            <div class="rd">SÉRIES</div>
+          </div>
+        </div>
+      </div>
+      <div class="row-inline">
+        <label class="ex-detail">Ratio :</label>
+        <select id="percentSelect">
+          <option value="50" ${state.profile.percent==50?'selected':''}>50%</option>
+          <option value="60" ${state.profile.percent==60?'selected':''}>60%</option>
+          <option value="70" ${state.profile.percent==70?'selected':''}>70%</option>
+        </select>
+      </div>
+      <div class="gtg-counter">
+        <button class="gtg-btn" data-action="gtg-add">+ 1 série faite</button>
+        <button class="gtg-btn secondary" data-action="gtg-reset">Réinitialiser</button>
+      </div>
+      <div class="cue">Repère technique : coudes à 30-45° du buste, jamais écartés à 90°. Vérifie surtout les 2-3 dernières reps de chaque série.</div>
+    `;
+  }
+  gtgBlock += maxTrendHtml;
+
+  const isCurrentWeek = toDateStr(getMonday(selDate)) === toDateStr(getMonday(new Date()));
+  const headerHtml = `<div class="sticky-top">${headerTopHtml()}${cycleRowHtml(cycleWeek)}
+    <div class="week-nav-row">
+      <button class="week-arrow" data-action="week-shift" data-dir="-1" aria-label="Semaine précédente">‹</button>
+      ${weekNavHtml(dates, state.selectedDate, todayD, doneFlags)}
+      <button class="week-arrow" data-action="week-shift" data-dir="1" aria-label="Semaine suivante">›</button>
+    </div>
+    ${!isCurrentWeek ? `<button class="today-link" data-action="go-today">↺ Revenir à aujourd'hui</button>` : ''}
+  </div>`;
+  const contentHtml = `
+    <div class="card">${gtgBlock}</div>
+    <div class="card session-card" style="border-top-color:${catColor}">
+      <div class="cat-chip" style="background:${catColor}">${TYPE_LABELS[session.type]}</div>
+      <h2>${session.title}</h2>
+      ${isDeload ? `<div class="deload-banner">Semaine allégée — réduis toutes les charges d'environ 30%, vise le bas des fourchettes de reps.</div>` : ''}
+      <ul class="exlist">${exList}</ul>
+    </div>
+  `;
+  return {headerHtml, contentHtml};
+}
+
+async function renderDashboardPage(){
+  state.streakBase = await computeStreakBase();
+  const now = new Date();
+  const cycleWeek = cycleWeekFor(now, state.profile.programStart);
+  const isDeload = cycleWeek === 4;
+  const adherence = await weekAdherence(now);
+  const todayDow = now.getDay();
+  const mondayIndex = todayDow===0 ? 6 : todayDow-1;
+  const daysElapsed = mondayIndex+1;
+  const doneCount = adherence.slice(0,daysElapsed).filter(a=>a.done).length;
+
+  const {plateau} = computeMaxTrend(state.profile.maxHistory || []);
+  const mh = state.profile.maxHistory || [];
+  const isMaxPR = mh.length>=2 && mh[mh.length-1].max > Math.max(...mh.slice(0,-1).map(e=>e.max));
+  const maxChart = renderMiniChart(mh, 'max', 'var(--accent)');
+
+  const bwHist = await loadBodyweightHist();
+  const bwChart = renderMiniChart(bwHist, 'kg', 'var(--accent)');
+  const bwCurrent = bwHist.length ? bwHist[bwHist.length-1].kg : null;
+
+  const exIds = Object.keys(EXERCISE_INFO);
+  const exHists = await Promise.all(exIds.map(id=>loadWeightHist(id)));
+  const exRows = exIds.map((id,i)=>{
+    const info = EXERCISE_INFO[id];
+    const h = exHists[i];
+    const last = h.length ? h[h.length-1] : null;
+    const color = CATEGORY_COLORS[info.type] || 'var(--muted)';
+    return `<li class="ex-mini-row">
+      <span class="ex-mini-dot" style="background:${color}"></span>
+      <span class="ex-mini-name">${info.name}</span>
+      <span class="ex-mini-val">${last ? last.kg+' kg · '+fmtDate(last.date) : 'Pas loggé'}</span>
+    </li>`;
+  }).join('');
+
+  const cyclesCompleted = Math.floor(Math.floor((getMonday(now)-getMonday(parseDateStr(state.profile.programStart)))/(7*86400000))/4);
+  const totalGtgSets = state.profile.totalGtgSets||0;
+  const totalSessionsCompleted = state.profile.totalSessionsCompleted||0;
+  const perfectWeeks = state.profile.perfectWeeks||0;
+  const longestStreak = state.profile.longestStreak||0;
+
+  const totalXP = totalSessionsCompleted*XP_PER_SESSION + totalGtgSets*XP_PER_GTG_SET + perfectWeeks*XP_PER_PERFECT_WEEK;
+  const level = Math.floor(totalXP/LEVEL_XP)+1;
+  const xpIntoLevel = totalXP % LEVEL_XP;
+  const levelPct = Math.round((xpIntoLevel/LEVEL_XP)*100);
+
+  const headerHtml = `<div class="sticky-top">${headerTopHtml()}</div>`;
+  const contentHtml = `
+    <div class="card">
+      <div class="eyebrow">Cette semaine</div>
+      <h2>Adhérence</h2>
+      <div class="adherence-row">
+        ${adherence.map((a,i)=>{
+          const color = CATEGORY_COLORS[PROGRAM[a.dow].type];
+          const isFuture = i > mondayIndex;
+          const style = a.done ? `background:${color};border-color:${color}` : '';
+          return `<div class="adh-dot ${a.done?'done':''} ${isFuture?'future':''}" style="${style}"><span>${DAY_LABELS[a.dow]}</span></div>`;
+        }).join('')}
+      </div>
+      <p class="ex-detail">${doneCount} / ${daysElapsed} séances complétées cette semaine</p>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">Cycle</div>
+      <h2>${isDeload ? 'Semaine allégée' : 'Semaine '+cycleWeek+' sur 4'}</h2>
+      ${cycleRowHtml(cycleWeek)}
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">Progression &amp; régularité</div>
+      <h2>Statistiques</h2>
+      <div class="stat-grid">
+        <div class="stat-box"><div class="stat-num">🔥 ${state.liveStreak}</div><div class="stat-lbl">jours d'affilée</div></div>
+        <div class="stat-box"><div class="stat-num">${longestStreak}</div><div class="stat-lbl">record de série</div></div>
+        <div class="stat-box"><div class="stat-num">${perfectWeeks}</div><div class="stat-lbl">semaines parfaites</div></div>
+        <div class="stat-box"><div class="stat-num">${totalSessionsCompleted}</div><div class="stat-lbl">séances complétées</div></div>
+        <div class="stat-box"><div class="stat-num">${totalGtgSets}</div><div class="stat-lbl">séries GTG cumulées</div></div>
+        <div class="stat-box"><div class="stat-num">${cyclesCompleted}</div><div class="stat-lbl">cycles complétés</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">Niveau</div>
+      <div class="level-num">Niveau ${level}</div>
+      <div class="level-bar-wrap"><div class="level-bar-fill" style="width:${levelPct}%"></div></div>
+      <div class="level-xp">${xpIntoLevel} / ${LEVEL_XP} XP jusqu'au niveau ${level+1}</div>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">Progression</div>
+      <h2>Max de pompes</h2>
+      <div class="num" style="font-family:'Oswald',sans-serif;font-size:40px;font-weight:800;color:var(--accent);">${state.profile.weeklyMax}</div>
+      ${maxChart}
+      ${isMaxPR ? `<div class="cue cue-pr">🏆 Nouveau record !</div>` : ''}
+      ${plateau ? `<div class="cue cue-warn">Plateau détecté — envisage la pyramide 2x/semaine.</div>` : ''}
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">Poids de corps</div>
+      <h2>${bwCurrent!=null ? bwCurrent+' kg' : 'Pas de données'}</h2>
+      ${bwChart}
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">Charges</div>
+      <h2>Dernières valeurs</h2>
+      <ul class="ex-mini-list">${exRows}</ul>
+    </div>
+  `;
+  return {headerHtml, contentHtml};
+}
+
+async function gatherExportData(){
+  const data = {exportedAt: new Date().toISOString(), profile: null, days: {}, exerciseHistories: {}, bodyweightHistory: []};
+  data.profile = await loadProfile();
+  const dayKeys = lsKeys('day:');
+  for(const k of dayKeys){
+    const v = lsGet(k);
+    if(v){ try{ data.days[k] = JSON.parse(v); }catch(e){} }
+  }
+  const exIds = Object.keys(EXERCISE_INFO);
+  const hists = await Promise.all(exIds.map(id=>loadWeightHist(id)));
+  exIds.forEach((id,i)=>{ data.exerciseHistories[id] = hists[i]; });
+  data.bodyweightHistory = await loadBodyweightHist();
+  return data;
+}
+async function importData(jsonText){
+  const data = JSON.parse(jsonText);
+  if(data.profile) await saveProfile(data.profile);
+  if(data.days){ for(const k of Object.keys(data.days)){ lsSet(k, JSON.stringify(data.days[k])); } }
+  if(data.exerciseHistories){ for(const id of Object.keys(data.exerciseHistories)){ lsSet('hist:'+id, JSON.stringify(data.exerciseHistories[id])); } }
+  if(data.bodyweightHistory){ lsSet('bodyweight-history', JSON.stringify(data.bodyweightHistory)); }
+}
+
+async function renderSettingsPage(){
+  const headerHtml = `<div class="sticky-top">${headerTopHtml()}</div>`;
+  const contentHtml = `
+    <div class="card">
+      <div class="eyebrow">Cycle</div>
+      <h2>Logique du programme</h2>
+      <div class="info-body">
+        Cycle de 4 semaines qui boucle : 3 semaines de charge progressive + 1 semaine allégée, puis reprise avec un peu plus de volume/charge que le cycle précédent. Le jour force haut du corps reste tirage-dominant — le pattern de poussée est déjà couvert par le GTG pompes. Le conditionnement du samedi progresse chaque semaine vers des blocs plus proches de 6 minutes, la durée d'un round en ceinture bleue.
+      </div>
+    </div>
+    <div class="card">
+      <div class="eyebrow">Progression</div>
+      <h2>Comment les stats sont calculées</h2>
+      <div class="info-body">
+        La série d'affilée compte les jours consécutifs où toute la séance a été cochée. Un record personnel se déclenche dès qu'un poids loggué dépasse ton meilleur précédent sur cet exercice. Le niveau est un cumul d'XP basé sur tes séances complétées, tes séries GTG et tes semaines parfaites — un indicateur global, pas une nouvelle donnée en soi.
+      </div>
+    </div>
+    <div class="card">
+      <div class="eyebrow">Portabilité</div>
+      <h2>Importer une sauvegarde</h2>
+      <p class="ex-detail" style="margin-bottom:10px;">Colle ici le JSON exporté précédemment (ou reçu après une modification faite avec Claude) pour restaurer tout ton historique.</p>
+      <textarea id="importInput" placeholder="Colle le JSON ici..." style="width:100%;min-height:100px;padding:8px;border-radius:6px;border:1.5px solid var(--line);background:var(--panel-2);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:11px;"></textarea>
+      <button class="gtg-btn" data-action="import-data" style="margin-top:8px;">Importer</button>
+    </div>
+    <div class="card">
+      <div class="eyebrow">Portabilité</div>
+      <h2>Exporter mes données</h2>
+      <p class="ex-detail" style="margin-bottom:10px;">Génère une copie JSON de tout ce qui est stocké — profil, historique des jours, charges, poids de corps. Indépendant de Claude.</p>
+      <button class="gtg-btn" data-action="export-data">Générer l'export</button>
+      ${state.exportJson ? `
+        <div class="row-inline" style="margin-top:10px;">
+          <button class="gtg-btn secondary" data-action="export-download">Télécharger le fichier</button>
+          <button class="gtg-btn secondary" data-action="export-copy">Copier le texte</button>
+        </div>
+        <textarea readonly style="width:100%;min-height:120px;margin-top:10px;padding:8px;border-radius:6px;border:1.5px solid var(--line);background:var(--panel-2);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:11px;" onclick="this.select()">${state.exportJson}</textarea>
+        <p class="ex-detail">Si le téléchargement ne se déclenche pas, touche le texte ci-dessus pour tout sélectionner, puis copie-le manuellement.</p>
+      ` : ''}
+    </div>
+    <div class="card">
+      <div class="eyebrow">Données</div>
+      <h2>Réinitialiser</h2>
+      <p class="ex-detail" style="margin-bottom:10px;">Efface le profil, les statistiques et l'historique. Action irréversible.</p>
+      <button class="gtg-btn" data-action="reset-all">Réinitialiser mes données</button>
+    </div>
+  `;
+  return {headerHtml, contentHtml};
+}
+
+function fmtMMSS(totalSec){
+  const s = Math.max(0, Math.ceil(totalSec));
+  const m = Math.floor(s/60);
+  const sec = s%60;
+  return pad(m)+':'+pad(sec);
+}
+function timerBeep(freq, dur){
+  freq = freq||880; dur = dur||150;
+  try{
+    const ctx = new (window.AudioContext||window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0.2, ctx.currentTime);
+    osc.start();
+    osc.stop(ctx.currentTime + dur/1000);
+    osc.onended = ()=>ctx.close();
+  }catch(e){ /* audio unavailable, ignore */ }
+  if(navigator.vibrate){ try{ navigator.vibrate(150); }catch(e){} }
+}
+function timerStartPhase(){
+  const t = state.timer;
+  const durSec = t.phase==='work' ? t.workSec : t.restSec;
+  t.endTimestamp = Date.now() + durSec*1000;
+}
+async function autoCheckConditioningIfDone(){
+  const t = state.timer;
+  if(t.rounds < 2) return false;
+  const todayD = new Date();
+  const dow = todayD.getDay();
+  if(PROGRAM[dow].type !== 'CONDITIONNEMENT') return false;
+  const ds = todayStr();
+  const rec = (state.selectedDate===ds && state.dayData) ? state.dayData : await loadDay(ds);
+  if(rec.checked['k1']) return false;
+  const wasDone = isDayDoneSync(todayD, rec);
+  rec.checked['k1'] = true;
+  const nowDone = isDayDoneSync(todayD, rec);
+  if(!wasDone && nowDone){
+    state.profile.totalSessionsCompleted = (state.profile.totalSessionsCompleted||0)+1;
+    await saveProfile(state.profile);
+  }
+  await saveDay(ds, rec);
+  if(state.selectedDate===ds){ state.dayData = rec; }
+  return true;
+}
+async function timerAdvance(){
+  const t = state.timer;
+  if(t.currentRound >= t.rounds){
+    t.running = false; t.phase = 'done';
+    if(timerHandle){ clearInterval(timerHandle); timerHandle=null; }
+    timerBeep(1200,300);
+    state.timerJustAutoChecked = await autoCheckConditioningIfDone();
+  } else {
+    t.currentRound++;
+    t.phase = 'work';
+    timerStartPhase();
+  }
+}
+async function timerTick(){
+  const t = state.timer;
+  if(!t.running || t.paused) return;
+  const remainingMs = t.endTimestamp - Date.now();
+  if(remainingMs <= 0){
+    timerBeep();
+    if(t.phase==='work'){
+      if(t.restSec>0){ t.phase='rest'; timerStartPhase(); }
+      else { await timerAdvance(); }
+    } else if(t.phase==='rest'){
+      await timerAdvance();
+    }
+    await render();
+    return;
+  }
+  const el = document.getElementById('timerDisplay');
+  if(el) el.textContent = fmtMMSS(remainingMs/1000);
+}
+
+async function renderTimerPage(){
+  const t = state.timer;
+  const cycleWeek = cycleWeekFor(new Date(), state.profile.programStart);
+  const presc = CONDITIONING_BY_WEEK[cycleWeek][0];
+  const headerHtml = `<div class="sticky-top">${headerTopHtml()}</div>`;
+
+  const phaseLabel = t.phase==='work' ? 'EFFORT' : t.phase==='rest' ? 'RÉCUP' : t.phase==='done' ? 'TERMINÉ' : 'PRÊT';
+  const phaseColor = t.phase==='work' ? 'var(--accent)' : t.phase==='rest' ? 'var(--green)' : 'var(--muted)';
+  let displaySec;
+  if(t.phase==='idle'){ displaySec = t.workSec; }
+  else if(t.phase==='done'){ displaySec = 0; }
+  else if(t.paused){ displaySec = t.pausedRemainingMs/1000; }
+  else { displaySec = Math.max(0,(t.endTimestamp-Date.now())/1000); }
+
+  const isIdle = (t.phase==='idle'||t.phase==='done');
+  const contentHtml = `
+    <div class="card" style="text-align:center;${!isIdle?`border-color:${phaseColor}`:''}">
+      <div class="eyebrow" style="color:${phaseColor}">${phaseLabel}</div>
+      <div id="timerDisplay" class="timer-display">${fmtMMSS(displaySec)}</div>
+      <p class="ex-detail">Round ${t.currentRound} / ${t.rounds}</p>
+      ${(t.phase==='done' && state.timerJustAutoChecked) ? `<div class="cue cue-pr">✓ Séance de conditionnement cochée automatiquement</div>` : ''}
+      <div class="row-inline" style="justify-content:center;margin-top:14px;">
+        ${isIdle
+          ? `<button class="gtg-btn" data-action="timer-start">Démarrer</button>`
+          : `<button class="gtg-btn" data-action="timer-pause">${t.paused?'Reprendre':'Pause'}</button>
+             <button class="gtg-btn secondary" data-action="timer-reset">Réinitialiser</button>`
+        }
+      </div>
+    </div>
+    ${isIdle ? `
+    <div class="card">
+      <div class="eyebrow">Réglages</div>
+      <h2>Configurer</h2>
+      <div class="row-inline">
+        <label class="ex-detail" style="width:70px;">Effort (s)</label>
+        <input type="number" inputmode="numeric" id="timerWork" value="${t.workSec}">
+      </div>
+      <div class="row-inline">
+        <label class="ex-detail" style="width:70px;">Récup (s)</label>
+        <input type="number" inputmode="numeric" id="timerRest" value="${t.restSec}">
+      </div>
+      <div class="row-inline">
+        <label class="ex-detail" style="width:70px;">Rounds</label>
+        <input type="number" inputmode="numeric" id="timerRounds" value="${t.rounds}">
+      </div>
+      <button class="gtg-btn" data-action="timer-load-conditioning" style="margin-top:4px;">Charger le conditionnement (S${cycleWeek}) — ${presc.rounds}x${presc.workSec}s/${presc.restSec}s</button>
+      <div class="cue" style="margin-top:10px;">Présets rapides — repos/holds sans rounds :</div>
+      <div class="row-inline" style="margin-top:6px;">
+        <button class="gtg-btn secondary" data-action="timer-preset" data-work="20" data-rest="0" data-rounds="1">20s</button>
+        <button class="gtg-btn secondary" data-action="timer-preset" data-work="40" data-rest="0" data-rounds="1">40s</button>
+        <button class="gtg-btn secondary" data-action="timer-preset" data-work="90" data-rest="0" data-rounds="1">90s</button>
+        <button class="gtg-btn secondary" data-action="timer-preset" data-work="120" data-rest="0" data-rounds="1">2 min</button>
+      </div>
+    </div>` : ''}
+  `;
+  return {headerHtml, contentHtml};
+}
+
+function bottomNavHtml(){
+  const page = state.page;
+  const icon = {
+    today: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M7 9h10M7 13h10M7 17h6"/></svg>`,
+    timer: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 3.5"/></svg>`,
+    dashboard: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="12" width="4" height="8"/><rect x="10" y="7" width="4" height="13"/><rect x="16" y="3" width="4" height="17"/></svg>`,
+    settings: `<svg viewBox="0 0 24 24" width="20" height="20"><line x1="4" y1="7" x2="20" y2="7" stroke="currentColor" stroke-width="2"/><circle cx="14" cy="7" r="2.5" fill="currentColor"/><line x1="4" y1="14" x2="20" y2="14" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="14" r="2.5" fill="currentColor"/><line x1="4" y1="21" x2="20" y2="21" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="21" r="2.5" fill="currentColor"/></svg>`
+  };
+  const items = [
+    {key:'today', label:"Aujourd'hui"},
+    {key:'timer', label:'Chrono'},
+    {key:'dashboard', label:'Dashboard'},
+    {key:'settings', label:'Réglages'}
+  ];
+  return `<div class="bottom-nav-outer"><nav class="bottom-nav">
+    ${items.map(it=>`<button class="nav-btn ${page===it.key?'active':''}" data-action="nav" data-page="${it.key}">${icon[it.key]}<span>${it.label}</span></button>`).join('')}
+  </nav></div>`;
+}
+
+async function render(){
+  const app = document.getElementById('app');
+  const todayDoneNow = await getTodayDoneNow();
+  state.liveStreak = state.streakBase + (todayDoneNow ? 1 : 0);
+  if(state.liveStreak > (state.profile.longestStreak||0)){
+    state.profile.longestStreak = state.liveStreak;
+    await saveProfile(state.profile);
+  }
+  let headerHtml, contentHtml;
+  if(state.page === 'dashboard'){ ({headerHtml, contentHtml} = await renderDashboardPage()); }
+  else if(state.page === 'settings'){ ({headerHtml, contentHtml} = await renderSettingsPage()); }
+  else if(state.page === 'timer'){ ({headerHtml, contentHtml} = await renderTimerPage()); }
+  else { ({headerHtml, contentHtml} = await renderTodayPage()); }
+  app.innerHTML = headerHtml + contentHtml + bottomNavHtml();
+  wireEvents();
+}
+
+function wireEvents(){
+  const app = document.getElementById('app');
+  app.onclick = async (e) => {
+    if(e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+    const el = e.target.closest('[data-action]');
+    if(!el) return;
+    const action = el.dataset.action;
+
+    if(action === 'nav'){
+      const newPage = el.dataset.page;
+      if(state.page === 'timer' && newPage !== 'timer' && timerHandle){
+        clearInterval(timerHandle); timerHandle = null;
+      }
+      state.page = newPage;
+      await render();
+      if(state.page === 'timer' && state.timer.running && !state.timer.paused && !timerHandle){
+        timerHandle = setInterval(timerTick, 200);
+        timerTick();
+      }
+    }
+    else if(action === 'select-day'){
+      state.selectedDate = el.dataset.date;
+      state.dayData = await loadDay(state.selectedDate);
+      await render();
+    }
+    else if(action === 'toggle-ex'){
+      const id = el.dataset.id;
+      const dateObj = parseDateStr(state.selectedDate);
+      const wasDone = isDayDoneSync(dateObj, state.dayData);
+      state.dayData.checked[id] = !state.dayData.checked[id];
+      const nowDone = isDayDoneSync(dateObj, state.dayData);
+      if(!wasDone && nowDone){ state.profile.totalSessionsCompleted = (state.profile.totalSessionsCompleted||0)+1; }
+      else if(wasDone && !nowDone){ state.profile.totalSessionsCompleted = Math.max(0,(state.profile.totalSessionsCompleted||0)-1); }
+      await saveDay(state.selectedDate, state.dayData);
+      await saveProfile(state.profile);
+      await render();
+    }
+    else if(action === 'gtg-add'){
+      state.dayData.gtgSets = (state.dayData.gtgSets||0) + 1;
+      state.profile.totalGtgSets = (state.profile.totalGtgSets||0) + 1;
+      await saveDay(state.selectedDate, state.dayData);
+      await saveProfile(state.profile);
+      await render();
+    }
+    else if(action === 'gtg-reset'){
+      state.dayData.gtgSets = 0;
+      await saveDay(state.selectedDate, state.dayData);
+      await render();
+    }
+    else if(action === 'save-max'){
+      const input = document.getElementById('maxInput');
+      const val = parseInt(input.value, 10);
+      if(val && val > 0){
+        state.profile.weeklyMax = val;
+        state.profile.maxHistory = state.profile.maxHistory || [];
+        const filtered = state.profile.maxHistory.filter(e=>e.date!==state.selectedDate);
+        filtered.push({date: state.selectedDate, max: val});
+        filtered.sort((a,b)=>a.date.localeCompare(b.date));
+        state.profile.maxHistory = filtered.slice(-12);
+        await saveProfile(state.profile);
+        await render();
+      }
+    }
+    else if(action === 'save-bw'){
+      const input = document.getElementById('bwInput');
+      const val = parseFloat(input.value);
+      if(val && val > 0){
+        await saveBodyweightEntry(state.selectedDate, val);
+        await render();
+      }
+    }
+    else if(action === 'toggle-theme'){
+      state.profile.theme = state.profile.theme === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', state.profile.theme);
+      await saveProfile(state.profile);
+      await render();
+    }
+    else if(action === 'timer-start'){
+      const t = state.timer;
+      t.currentRound = 1; t.phase = 'work'; t.running = true; t.paused = false;
+      timerStartPhase();
+      await render();
+      if(timerHandle){ clearInterval(timerHandle); }
+      timerHandle = setInterval(timerTick, 200);
+      timerTick();
+    }
+    else if(action === 'timer-pause'){
+      const t = state.timer;
+      if(!t.paused){
+        t.pausedRemainingMs = Math.max(0, t.endTimestamp - Date.now());
+        t.paused = true;
+        if(timerHandle){ clearInterval(timerHandle); timerHandle = null; }
+      } else {
+        t.endTimestamp = Date.now() + t.pausedRemainingMs;
+        t.paused = false;
+        timerHandle = setInterval(timerTick, 200);
+        timerTick();
+      }
+      await render();
+    }
+    else if(action === 'timer-reset'){
+      if(timerHandle){ clearInterval(timerHandle); timerHandle = null; }
+      const t = state.timer;
+      t.running = false; t.paused = false; t.phase = 'idle';
+      t.currentRound = 1; t.endTimestamp = null; t.pausedRemainingMs = 0;
+      await render();
+    }
+    else if(action === 'timer-preset'){
+      state.timer.workSec = parseInt(el.dataset.work, 10);
+      state.timer.restSec = parseInt(el.dataset.rest, 10);
+      state.timer.rounds = parseInt(el.dataset.rounds, 10);
+      await render();
+    }
+    else if(action === 'timer-load-conditioning'){
+      const cw = cycleWeekFor(new Date(), state.profile.programStart);
+      const presc = CONDITIONING_BY_WEEK[cw][0];
+      state.timer.workSec = presc.workSec;
+      state.timer.restSec = presc.restSec;
+      state.timer.rounds = presc.rounds;
+      await render();
+    }
+    else if(action === 'week-shift'){
+      const dir = parseInt(el.dataset.dir, 10);
+      const cur = parseDateStr(state.selectedDate);
+      cur.setDate(cur.getDate() + dir*7);
+      state.selectedDate = toDateStr(cur);
+      state.dayData = await loadDay(state.selectedDate);
+      await render();
+    }
+    else if(action === 'go-today'){
+      state.selectedDate = todayStr();
+      state.dayData = await loadDay(state.selectedDate);
+      await render();
+    }
+    else if(action === 'import-data'){
+      const ta = document.getElementById('importInput');
+      const text = ta ? ta.value.trim() : '';
+      if(!text){ alert('Colle d\'abord le JSON exporté dans le champ.'); }
+      else {
+        try{
+          await importData(text);
+          alert('Import réussi. Rechargement...');
+          location.reload();
+        }catch(e){
+          alert("Le JSON semble invalide — vérifie que tu as bien copié tout le texte de l'export.");
+          console.error(e);
+        }
+      }
+    }
+    else if(action === 'export-data'){
+      state.exportJson = JSON.stringify(await gatherExportData(), null, 2);
+      await render();
+    }
+    else if(action === 'export-download'){
+      try{
+        const blob = new Blob([state.exportJson], {type:'application/json'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'programme-jjb-export.json';
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }catch(e){ console.error('download failed', e); alert("Le téléchargement direct n'a pas fonctionné — copie le texte manuellement."); }
+    }
+    else if(action === 'export-copy'){
+      try{
+        await navigator.clipboard.writeText(state.exportJson);
+        alert('Copié dans le presse-papiers.');
+      }catch(e){
+        alert("Copie automatique indisponible — sélectionne le texte manuellement.");
+      }
+    }
+    else if(action === 'reset-all'){
+      if(confirm('Effacer toutes les données enregistrées (profil + statistiques + historique) ?')){
+        state.profile = {programStart: toDateStr(getMonday(new Date())), weeklyMax: 22, percent: 60, maxHistory: [], theme: state.profile.theme,
+          totalGtgSets:0, totalSessionsCompleted:0, perfectWeeks:0, longestStreak:0, lastEvaluatedWeekMonday:null};
+        await saveProfile(state.profile);
+        state.selectedDate = todayStr();
+        state.dayData = normalizeDay(null);
+        state.streakBase = 0;
+        await saveDay(state.selectedDate, state.dayData);
+        await render();
+      }
+    }
+  };
+  app.onchange = async (e) => {
+    if(e.target.id === 'timerWork'){ state.timer.workSec = Math.max(1, parseInt(e.target.value,10)||1); return; }
+    if(e.target.id === 'timerRest'){ state.timer.restSec = Math.max(0, parseInt(e.target.value,10)||0); return; }
+    if(e.target.id === 'timerRounds'){ state.timer.rounds = Math.max(1, parseInt(e.target.value,10)||1); return; }
+    if(e.target.id === 'percentSelect'){
+      state.profile.percent = parseInt(e.target.value, 10);
+      await saveProfile(state.profile);
+      await render();
+    }
+    else if(e.target.classList.contains('winput')){
+      const exId = e.target.dataset.exid;
+      const val = parseFloat(e.target.value);
+      if(!isNaN(val) && val >= 0){
+        state.dayData.weights = state.dayData.weights || {};
+        state.dayData.weights[exId] = val;
+        await saveDay(state.selectedDate, state.dayData);
+        await saveWeightHist(exId, state.selectedDate, val);
+        await render();
+      }
+    }
+  };
+}
+
+(async function init(){
+  try{
+    let profile = await loadProfile();
+    if(!profile){
+      profile = {programStart: toDateStr(getMonday(new Date())), weeklyMax: 22, percent: 60, maxHistory: [], theme: 'dark',
+        totalGtgSets:0, totalSessionsCompleted:0, perfectWeeks:0, longestStreak:0, lastEvaluatedWeekMonday:null};
+      await saveProfile(profile);
+    }
+    if(!profile.maxHistory) profile.maxHistory = [];
+    if(!profile.theme) profile.theme = 'dark';
+    if(profile.totalGtgSets==null) profile.totalGtgSets = 0;
+    if(profile.totalSessionsCompleted==null) profile.totalSessionsCompleted = 0;
+    if(profile.perfectWeeks==null) profile.perfectWeeks = 0;
+    if(profile.longestStreak==null) profile.longestStreak = 0;
+    document.documentElement.setAttribute('data-theme', profile.theme);
+    state.profile = profile;
+    state.selectedDate = todayStr();
+    state.dayData = await loadDay(state.selectedDate);
+    await evaluatePerfectWeeksIfNeeded();
+    state.streakBase = await computeStreakBase();
+    await render();
+  }catch(err){
+    document.getElementById('app').innerHTML = '<p style="color:var(--accent);padding:20px;">Erreur de chargement. Recharge la page.</p>';
+    console.error(err);
+  }
+})();
+</script>
+</body>
+</html>
