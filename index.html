@@ -204,6 +204,9 @@ select{
 }
 
 .session-card{border-top:3px solid var(--line);}
+.equip-switch{display:flex;background:var(--panel-2);border-radius:8px;padding:3px;margin:10px 0 4px;gap:3px;}
+.equip-switch-btn{flex:1;min-height:38px;border:none;border-radius:6px;background:transparent;color:var(--muted);font-family:'Roboto',sans-serif;font-weight:500;font-size:12.5px;cursor:pointer;}
+.equip-switch-btn.active{background:var(--accent);color:#fff;font-weight:700;}
 .deload-banner{margin:10px 0 4px;padding:9px 10px;border-radius:6px;background:var(--amber-bg);border:1px solid var(--amber);color:var(--amber);font-size:12.5px;}
 ul.exlist{list-style:none;margin:12px 0 0;padding:0;}
 ul.exlist li{border-top:1px solid var(--line);padding:12px 4px;}
@@ -390,27 +393,39 @@ const LIB_EXTRA_EXERCISES = {
   lib_pl1:{id:'lib_pl1',name:'Rowing élastique',detail:'3 séries x 12 reps — bande ancrée à une porte ou sous les pieds'},
   lib_pl2:{id:'lib_pl2',name:'Rowing en table/porte (corps incliné)',detail:'3 séries x 10 reps — table solide ou cadre de porte, corps incliné en arrière, tire la poitrine vers le bord'},
   lib_cg1:{id:'lib_cg1',name:'Suspension (dead hang)',detail:'3-4 séries x 20-30s — barre, cadre de porte solide ou branche'},
-  lib_cg2:{id:'lib_cg2',name:'Marche fendue avec sac chargé',detail:'3 séries x 10 reps/jambe — sac à dos rempli (livres, bouteilles d\'eau)'}
+  lib_cg2:{id:'lib_cg2',name:'Marche fendue avec sac chargé',detail:'3 séries x 10 reps/jambe — sac à dos rempli (livres, bouteilles d\'eau)'},
+  lib_lg1:{id:'lib_lg1',name:'Fentes marchées (poids du corps ou sac à dos)',detail:'3 séries x 10 reps/jambe'},
+  lib_fp1:{id:'lib_fp1',name:'Face pull élastique',detail:'3 séries x 15 reps — bande ancrée à hauteur de visage'},
+  lib_curl1:{id:'lib_curl1',name:'Curl biceps élastique',detail:'3 séries x 10 reps — bande sous les pieds'},
+  lib_core2:{id:'lib_core2',name:'Rotation de tronc explosive',detail:'4 séries x 5 reps/côté — coussin ou sac léger, mouvement de lancer sans le lâcher'}
 };
 function getExerciseDef(id){ return ALL_EXERCISES_BY_ID[id] || LIB_EXTRA_EXERCISES[id]; }
+
+const NOEQUIP_SUBSTITUTES = {
+  1: ['lib_sq1','lib_hg2','lib_pl1','lib_lg1','f5','lib_cg2'],
+  4: ['e1','e2','lib_core2','lib_hg2','e5'],
+  5: ['lib_cg1','lib_pl1','lib_fp1','lib_curl1','lib_cg2','h6','h7']
+};
 
 const EXERCISE_LIBRARY = {
   equip: [
     {pattern:'Squat', ids:['f1']},
     {pattern:'Hinge', ids:['f2']},
-    {pattern:'Tirage', ids:['f3','h1']},
+    {pattern:'Tirage', ids:['f3','h2','h1']},
     {pattern:'Fentes / unilatéral', ids:['f4']},
-    {pattern:'Carry', ids:['f6']},
-    {pattern:'Explosif chargé', ids:['e3','e4']},
+    {pattern:'Carry', ids:['f6','h5']},
+    {pattern:'Explosif', ids:['e3','e4']},
     {pattern:'Accessoire', ids:['h4']}
   ],
   noequip: [
     {pattern:'Squat', ids:['e1','lib_sq1']},
     {pattern:'Hinge', ids:['lib_hg1','lib_hg2']},
     {pattern:'Tirage', ids:['lib_pl1','lib_pl2']},
-    {pattern:'Carry / grip', ids:['lib_cg1','lib_cg2']},
-    {pattern:'Explosif', ids:['e2','e5']},
-    {pattern:'Core', ids:['h6']}
+    {pattern:'Fentes / unilatéral', ids:['lib_lg1']},
+    {pattern:'Carry', ids:['lib_cg1','lib_cg2']},
+    {pattern:'Explosif', ids:['e2','e5','lib_core2']},
+    {pattern:'Core', ids:['h6']},
+    {pattern:'Accessoire', ids:['f5','h7','lib_fp1','lib_curl1']}
   ]
 };
 const LIB_SESSION_MIN = 4;
@@ -645,8 +660,6 @@ const PATTERN_ICONS = {
   'Tirage': `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5"/><path d="M9 7l-5 5 5 5"/></svg>`,
   'Fentes / unilatéral': `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20l6-16 6 16"/><path d="M9 20h6"/></svg>`,
   'Carry': `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="10" rx="1.5"/><path d="M9 9V6a3 3 0 016 0v3"/></svg>`,
-  'Carry / grip': `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="10" rx="1.5"/><path d="M9 9V6a3 3 0 016 0v3"/></svg>`,
-  'Explosif chargé': `<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>`,
   'Explosif': `<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>`,
   'Accessoire': `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/></svg>`,
   'Core': `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg>`
@@ -724,7 +737,7 @@ function buildExerciseLi(ex, dateStr, rec, histMap){
   </li>`;
 }
 
-async function renderTodayPage(){
+async function renderDashboardActionPage(){
   const selDate = parseDateStr(state.selectedDate);
   const cycleWeek = cycleWeekFor(selDate, state.profile.programStart);
   const isDeload = cycleWeek === 4;
@@ -734,11 +747,17 @@ async function renderTodayPage(){
   const dayData = state.dayData;
   const catColor = CATEGORY_COLORS[session.type] || 'var(--accent)';
 
+  const hasSubstitute = !!NOEQUIP_SUBSTITUTES[dow];
+  const equipMode = dayData.equipMode || 'equip';
+  const displayExercises = (hasSubstitute && equipMode==='noequip')
+    ? NOEQUIP_SUBSTITUTES[dow].map(id=>getExerciseDef(id)).filter(Boolean)
+    : (session.exercises||[]);
+
   const dates = weekDates(selDate);
   const adherence = await weekAdherence(selDate);
   const doneFlags = adherence.map(a=>a.done);
 
-  const loadableIds = (session.exercises||[]).filter(ex=>ex.loadable).map(ex=>ex.id);
+  const loadableIds = displayExercises.filter(ex=>ex.loadable).map(ex=>ex.id);
   const histArrays = await Promise.all(loadableIds.map(id=>loadWeightHist(id)));
   const histMap = {};
   loadableIds.forEach((id,i)=>{ histMap[id] = histArrays[i]; });
@@ -746,7 +765,7 @@ async function renderTodayPage(){
   const gtgTarget = Math.round(state.profile.weeklyMax * state.profile.percent / 100);
   const gtgSetsPlanned = dow === 3 ? 4 : (dow === 0 ? null : 8);
 
-  const exList = (session.exercises||[]).map(ex=>buildExerciseLi(ex, state.selectedDate, dayData, histMap)).join('');
+  const exList = displayExercises.map(ex=>buildExerciseLi(ex, state.selectedDate, dayData, histMap)).join('');
 
   const {line: maxLine, plateau} = computeMaxTrend(state.profile.maxHistory || []);
   const mh = state.profile.maxHistory || [];
@@ -822,10 +841,19 @@ async function renderTodayPage(){
     ${!isCurrentWeek ? `<button class="today-link" data-action="go-today">↺ Revenir à aujourd'hui</button>` : ''}
   </div>`;
   const contentHtml = `
+    <div class="card welcome-card">
+      <div class="welcome-text">${state.welcomeMessage || pickWelcomeMessage()}</div>
+    </div>
     <div class="card">${gtgBlock}</div>
     <div class="card session-card" style="border-top-color:${catColor}">
       <div class="cat-chip" style="background:${catColor}">${TYPE_LABELS[session.type]}</div>
       <h2>${session.title}</h2>
+      ${hasSubstitute ? `
+        <div class="equip-switch">
+          <button class="equip-switch-btn ${equipMode==='equip'?'active':''}" data-action="set-equip-mode" data-mode="equip">Avec matériel</button>
+          <button class="equip-switch-btn ${equipMode==='noequip'?'active':''}" data-action="set-equip-mode" data-mode="noequip">Sans matériel</button>
+        </div>
+      ` : ''}
       ${isDeload ? `<div class="deload-banner">Semaine allégée — réduis toutes les charges d'environ 30%, vise le bas des fourchettes de reps.</div>` : ''}
       <ul class="exlist">${exList}</ul>
     </div>
@@ -872,7 +900,7 @@ async function renderLibraryPage(){
   return {headerHtml, contentHtml};
 }
 
-async function renderDashboardPage(){
+async function buildStatsCardsHtml(){
   state.streakBase = await computeStreakBase();
   const now = new Date();
   const cycleWeek = cycleWeekFor(now, state.profile.programStart);
@@ -917,11 +945,7 @@ async function renderDashboardPage(){
   const xpIntoLevel = totalXP % LEVEL_XP;
   const levelPct = Math.round((xpIntoLevel/LEVEL_XP)*100);
 
-  const headerHtml = `<div class="sticky-top">${headerTopHtml()}</div>`;
-  const contentHtml = `
-    <div class="card welcome-card">
-      <div class="welcome-text">${state.welcomeMessage || pickWelcomeMessage()}</div>
-    </div>
+  return `
     <div class="card">
       <div class="eyebrow">Cette semaine</div>
       <h2>Adhérence</h2>
@@ -983,7 +1007,6 @@ async function renderDashboardPage(){
       <ul class="ex-mini-list">${exRows}</ul>
     </div>
   `;
-  return {headerHtml, contentHtml};
 }
 
 async function gatherExportData(){
@@ -1010,6 +1033,7 @@ async function importData(jsonText){
 
 async function renderSettingsPage(){
   const headerHtml = `<div class="sticky-top">${headerTopHtml()}</div>`;
+  const statsCardsHtml = await buildStatsCardsHtml();
   const contentHtml = `
     <div class="card">
       <div class="eyebrow">Profil</div>
@@ -1020,6 +1044,7 @@ async function renderSettingsPage(){
         <button class="gtg-btn" data-action="save-firstname">Enregistrer</button>
       </div>
     </div>
+    ${statsCardsHtml}
     <div class="card">
       <div class="eyebrow">Cycle</div>
       <h2>Logique du programme</h2>
@@ -1204,18 +1229,16 @@ async function renderTimerPage(){
 function bottomNavHtml(){
   const page = state.page;
   const icon = {
-    today: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M7 9h10M7 13h10M7 17h6"/></svg>`,
     timer: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 3.5"/></svg>`,
     library: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="9" width="3" height="6" rx="1"/><rect x="19" y="9" width="3" height="6" rx="1"/><line x1="7" y1="12" x2="17" y2="12"/><rect x="5" y="7" width="2" height="10" rx="1"/><rect x="17" y="7" width="2" height="10" rx="1"/></svg>`,
     dashboard: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="12" width="4" height="8"/><rect x="10" y="7" width="4" height="13"/><rect x="16" y="3" width="4" height="17"/></svg>`,
-    settings: `<svg viewBox="0 0 24 24" width="20" height="20"><line x1="4" y1="7" x2="20" y2="7" stroke="currentColor" stroke-width="2"/><circle cx="14" cy="7" r="2.5" fill="currentColor"/><line x1="4" y1="14" x2="20" y2="14" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="14" r="2.5" fill="currentColor"/><line x1="4" y1="21" x2="20" y2="21" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="21" r="2.5" fill="currentColor"/></svg>`
+    settings: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>`
   };
   const items = [
-    {key:'today', label:"Aujourd'hui"},
-    {key:'timer', label:'Chrono'},
     {key:'library', label:'Biblio'},
     {key:'dashboard', label:'Dashboard'},
-    {key:'settings', label:'Réglages'}
+    {key:'timer', label:'Chrono'},
+    {key:'settings', label:'Profil'}
   ];
   return `<div class="bottom-nav-outer"><nav class="bottom-nav">
     ${items.map(it=>`<button class="nav-btn ${page===it.key?'active':''}" data-action="nav" data-page="${it.key}">${icon[it.key]}<span>${it.label}</span></button>`).join('')}
@@ -1231,11 +1254,11 @@ async function render(){
     await saveProfile(state.profile);
   }
   let headerHtml, contentHtml;
-  if(state.page === 'dashboard'){ ({headerHtml, contentHtml} = await renderDashboardPage()); }
+  if(state.page === 'dashboard'){ ({headerHtml, contentHtml} = await renderDashboardActionPage()); }
   else if(state.page === 'library'){ ({headerHtml, contentHtml} = await renderLibraryPage()); }
   else if(state.page === 'settings'){ ({headerHtml, contentHtml} = await renderSettingsPage()); }
   else if(state.page === 'timer'){ ({headerHtml, contentHtml} = await renderTimerPage()); }
-  else { ({headerHtml, contentHtml} = await renderTodayPage()); }
+  else { ({headerHtml, contentHtml} = await renderDashboardActionPage()); }
   app.innerHTML = headerHtml + contentHtml + bottomNavHtml();
   wireEvents();
 }
@@ -1398,6 +1421,12 @@ function wireEvents(){
       const input = document.getElementById('firstNameInput');
       state.profile.firstName = input ? input.value.trim() : '';
       await saveProfile(state.profile);
+      await render();
+    }
+    else if(action === 'set-equip-mode'){
+      const mode = el.dataset.mode;
+      state.dayData.equipMode = mode;
+      await saveDay(state.selectedDate, state.dayData);
       await render();
     }
     else if(action === 'lib-tab'){
